@@ -1,6 +1,18 @@
 # quarkus-gradle-renovate-example
 
-Created using 
+[![Use this template](https://img.shields.io/badge/from-java--library--template-brightgreen?logo=dropbox)](https://github.com/thriving-dev/java-library-template/generate)
+[![Java CI](https://github.com/thriving-dev/quarkus-gradle-renovate-example/actions/workflows/1.pipeline.yml/badge.svg)](https://github.com/thriving-dev/quarkus-gradle-renovate-example/actions/workflows/1.pipeline.yml)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
+Renovate hit a snag with Quarkus updates?
+
+**TLDR:** Renovate cannot automatically update Quarkus gradle plugin dependencies for projects created via [Quarkus CLI](https://quarkus.io/guides/cli-tooling).
+The explanation to the version not tracked is relatively simple ...Renovate cannot resolve the packageName and datasource.
+
+Don't worry! This guide reveals the issue & the solution to fix it.   
+=> https://thriving.dev/blog/streamline-quarkus-gradle-updates-with-renovate
+
+## Created using 
 ```shell script
 quarkus create app dev.thriving.example:quarkus-gradle-renovate-example:0.0.1 \
   --gradle-kotlin-dsl \
@@ -65,3 +77,6 @@ If you want to learn more about building native executables, please consult http
 Easily start your Reactive RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+## Credits
+- Created by https://github.com/thriving-dev/java-library-template

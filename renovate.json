@@ -12,5 +12,19 @@
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "datasourceTemplate": "maven",
+      "depNameTemplate": "io.quarkus",
+      "depTypeTemplate": "plugin",
+      "packageNameTemplate": "io.quarkus:io.quarkus.gradle.plugin",
+      "fileMatch": ["(^|/)gradle\\.properties"],
+      "registryUrlTemplate": "https://plugins.gradle.org/m2",
+      "matchStrings": [
+        "quarkusPluginVersion=(?<currentValue>[\\w+\\.\\-]*)"
+      ]
+    }
   ]
 }

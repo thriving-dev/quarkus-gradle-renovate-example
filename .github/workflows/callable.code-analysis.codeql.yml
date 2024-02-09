@@ -46,7 +46,7 @@ jobs:
           cache-read-only: true
       - name: Run build with Gradle Wrapper
         run: |
-          ./gradlew build -x intTest --no-daemon
+          ./gradlew build --no-daemon
           # ignore ./.gradle folder for analysis
           rm -Rf .gradle
 

@@ -21,7 +21,7 @@ jobs:
         with:
           cache-write-only: true
       - name: Run build (incl. test)
-        run: ./gradlew build -x intTest --no-daemon
+        run: ./gradlew build --no-daemon
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4

@@ -7,18 +7,6 @@ on:
       - '*'
   pull_request:
     branches: ['*']
-  workflow_dispatch:
-    inputs:
-      type:
-        description: 'Release Library'
-        required: true
-        default: '...no release'
-        type: choice
-        options:
-          - '...no release'
-          - major
-          - minor
-          - patch
 
 jobs:
 
@@ -40,45 +28,3 @@ jobs:
     if: |
       github.event_name != 'workflow_dispatch'
       || inputs.type == '...no release'
-
-  integration_test:
-    name: Integration tests
-    uses: ./.github/workflows/callable.integration-test.yml
-    needs: build
-
-  gradle_release:
-    name: Create release
-    uses: ./.github/workflows/callable.gradle-release.yml
-    secrets: inherit
-    with:
-      type: ${{ inputs.type }}
-    needs: integration_test
-    if: |
-      github.event_name == 'workflow_dispatch'
-      && inputs.type != '...no release'
-
-  publish_sonatype:
-    name: Publish artifact (Maven Central)
-    uses: ./.github/workflows/callable.publish-sonatype.yml
-    secrets: inherit
-    needs: integration_test
-    if: |
-      (
-        github.event_name != 'workflow_dispatch'
-        || inputs.type == '...no release'
-      ) && ( 
-        github.ref == 'refs/heads/main' 
-        || github.ref_type == 'tag' 
-      )
-
-  publish_javadoc:
-    name: Publish javadoc (GitHub Pages)
-    permissions:
-      contents: write
-    uses: ./.github/workflows/callable.publish-javadoc.yml
-    needs: integration_test
-    if: |
-      (
-        github.ref == 'refs/heads/main'
-        && ( inputs.type == '' || inputs.type == '...no release' )
-      ) || github.ref_type == 'tag' 

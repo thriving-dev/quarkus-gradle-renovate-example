@@ -10,7 +10,7 @@ Renovate hit a snag with Quarkus updates?
 The explanation to the version not tracked is relatively simple ...Renovate cannot resolve the packageName and datasource.
 
 Don't worry! This guide reveals the issue & the solution to fix it.   
-=> https://thriving.dev/blog/streamline-quarkus-gradle-updates-with-renovate
+=> https://thriving.dev/blog/patch-quarkus-gradle-like-a-pro-with-renovate
 
 ## Created using 
 ```shell script

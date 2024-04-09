@@ -17,7 +17,7 @@ jobs:
           java-version: '21'
       - uses: gradle/wrapper-validation-action@v2
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3.2.0
+        uses: gradle/gradle-build-action@v3.2.1
         with:
           cache-write-only: true
       - name: Run build (incl. test)
